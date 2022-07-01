@@ -8,8 +8,6 @@ const listadoUsuarios = (page) => {
     let paginadorHml = '';
     
     usuarios.then(data => {
-        console.log(page);
-        console.log(data['page']);
         if(data['data'].length === 0) {listaHml = `<tr><td colspan="6" style="text-align: center;">No se encontró información</td></tr>`;}
         data['data'].forEach(usuario => {
             listaHml += `<tr>

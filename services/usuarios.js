@@ -44,7 +44,7 @@ const getUsers = async (new_page) => {
         const { data, page, total, per_page } = await resp.json();
 
         setUser(data, page, total, per_page);
-        
+
         return { data, page, total, per_page };
     } catch (error) {
         throw error;
