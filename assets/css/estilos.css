@@ -32,6 +32,18 @@ body {
     box-sizing: border-box;
 }
 
+.columna3 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.foto_container {
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
 .tabla {
     display: table;
     width: 100%;
@@ -45,6 +57,20 @@ body {
     border-spacing: 2px;
     vertical-align: middle;
     border-color: inherit;
+}
+
+.etiqueta {
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+    background-color: #5bc0de;
 }
 
 h1 {
@@ -141,22 +167,25 @@ td {
     background: #fff;
     padding: 10px;
     width: 37.5em;
-    min-height: 25em;
+    min-height: 15em;
     border-radius: 1%;
   }
+
   .modal-dialog-grid {
     display: grid;
-    grid-template-rows: 3.44em calc(90vh - 3.44em);
+    grid-template-rows: 3.44em calc(40vh - 3.44em);
     grid-template-areas:
     "area-header"
     "area-body"
   }
+
   .area-header {
     grid-area: area-header;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .area-header button {
     background: #0d6efd;
     color: white;
@@ -165,6 +194,7 @@ td {
     border-radius: 1%;
     border: 1px solid #86b7fe;
   }
+
   .area-header h2 {
     margin: 0;
     padding: 0;
@@ -172,9 +202,9 @@ td {
     position: sticky;
     top:0;
   }
+
   .area-body {
     grid-area: area-body;
     margin: 0;
-    padding: 0;
+    padding: 20px;
   }
-  

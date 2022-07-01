@@ -2,11 +2,13 @@ const verPerfil = (id) => {
     openModal(id);
 }
 
-const listadoUsuarios = () => {
-    const usuarios = getUsers();
+const listadoUsuarios = (page) => {
+    const usuarios = getUsers(page);
     let listaHml = '';
     
+    
     usuarios.then(data => {
+        if(data['data'].length === 0) {listaHml = `<tr><td colspan="6" style="text-align: center;">No se encontró información</td></tr>`;}
         data['data'].forEach(usuario => {
             listaHml += `<tr>
                 <td class="item_center">${usuario['id']}</td>
