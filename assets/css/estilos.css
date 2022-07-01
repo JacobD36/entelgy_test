@@ -14,8 +14,6 @@ body {
 }
 
 .columna {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
     margin-top: 0;
