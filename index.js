@@ -1,1 +1,1 @@
-const body = document.querySelector('body');
+listadoUsuarios();
