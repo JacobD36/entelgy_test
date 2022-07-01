@@ -4,8 +4,9 @@ const verPerfil = (id) => {
 
 const listadoUsuarios = (page) => {
     const usuarios = getUsers(page);
+    const usersPerPage = 6;
     let listaHml = '';
-    
+    let paginadorHml = '';
     
     usuarios.then(data => {
         if(data['data'].length === 0) {listaHml = `<tr><td colspan="6" style="text-align: center;">No se encontró información</td></tr>`;}
@@ -38,6 +39,11 @@ const listadoUsuarios = (page) => {
             </table>
         `;
 
+        for(i = 1; i <= Math.trunc(data['total']/usersPerPage); i++) {
+            paginadorHml += `<li><a href="javascript:void(0)" onclick="getPage('${i}')" id="p${i}">${i}</a></li>`;
+        }
+        
+        document.querySelector('#paginador').innerHTML = `<ul class="paginacion">${paginadorHml}</ul>`;
         document.querySelector('.columna2').innerHTML = usersTable; 
     });
 }

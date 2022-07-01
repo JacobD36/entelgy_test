@@ -24,8 +24,8 @@ const getUsers = async (page) => {
     try {
         const resp = await fetch(`${url}?page=${page}`);
         if(resp.status === 400) throw 'No se pudo realizar la petición';
-        const { data } = await resp.json();
-        return { data };
+        const { data, total } = await resp.json();
+        return { data, total };
     } catch (error) {
         throw error;
     }
