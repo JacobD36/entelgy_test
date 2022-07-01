@@ -4,11 +4,12 @@ const verPerfil = (id) => {
 
 const listadoUsuarios = (page) => {
     const usuarios = getUsers(page);
-    const usersPerPage = 6;
     let listaHml = '';
     let paginadorHml = '';
     
     usuarios.then(data => {
+        console.log(page);
+        console.log(data['page']);
         if(data['data'].length === 0) {listaHml = `<tr><td colspan="6" style="text-align: center;">No se encontró información</td></tr>`;}
         data['data'].forEach(usuario => {
             listaHml += `<tr>
@@ -39,7 +40,7 @@ const listadoUsuarios = (page) => {
             </table>
         `;
 
-        for(i = 1; i <= Math.trunc(data['total']/usersPerPage); i++) {
+        for(i = 1; i <= Math.trunc(data['total']/data['per_page']); i++) {
             paginadorHml += `<li><a href="javascript:void(0)" onclick="getPage('${i}')" id="p${i}">${i}</a></li>`;
         }
         
