@@ -1,3 +1,5 @@
+const url = 'https://reqres.in/api/users';
+
 const existeListado = () => {
     return localStorage.getItem('listado') ? true : false;
 }
@@ -7,21 +9,24 @@ const getUserFromLocal = () => {
     return usuarios;
 }
 
-const getUser = (id) => {
-
-}
-
-const setUsers = () => {
-    const usuarios = getUsuarios();
-    localStorage.setItem('listado', usuarios);
-}
-
-const getUsuarios = () => {
-    if(!existeListado) {
-        const usuarios = getUserFromLocal();
-        return usuarios;
+const getUser = async (id) => {
+    try {
+        const resp = await fetch(`${url}/${id}`);
+        if(resp.status === 400) throw 'No se pudo realizar la petición';
+        const { data } = await resp.json();
+        return { data };
+    } catch (error) {
+        throw error;
     }
-    return ['Jaime', 'Pepe', 'Maria'];
 }
 
-setUsers();
+const getUsers = async (page) => {
+    try {
+        const resp = await fetch(`${url}?page=${page}`);
+        if(resp.status === 400) throw 'No se pudo realizar la petición';
+        const { data } = await resp.json();
+        return { data };
+    } catch (error) {
+        throw error;
+    }
+}

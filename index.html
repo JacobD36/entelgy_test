@@ -10,8 +10,21 @@
 <body>
     <h1>Entelgy - Test</h1>
     <div class="columna">
-        <div class="columna2">
-
+        <div class="columna2"></div>
+    </div>
+    <div class="columna" style="float: right;">
+        <ul class="paginacion">
+            <li><a href="javascript:void(0)" class="activo" onclick="getPage('1')" id="p1">1</a></li>
+            <li><a href="javascript:void(0)" onclick="getPage('2')" id="p2">2</a></li>
+        </ul>
+    </div>
+    <div id="modal" class="modal-wrapper">
+        <div class="modal-dialog modal-dialog-grid" role="modal-dialog">
+            <header class="area-header">
+                <h2 id="titulo" role="title"></h2>
+                <button type="button" role="btn-close">x</button>
+            </header>
+            <div class="area-body" role="body"></div>
         </div>
     </div>
     <script src="services/usuarios.js"></script>
